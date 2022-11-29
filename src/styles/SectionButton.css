@@ -1,0 +1,16 @@
+.navButton {
+    background-image: "url(${icon})";
+    background-size: 150px;
+        background-repeat: "no-repeat";
+          background-position-x: "50%";
+          background-position-y: "30px";
+          height: 240;
+          width: 250;
+          background-color: "transparent";
+          border-radius: 10;
+          font-size: 22;
+          position: "relative";
+          font-weight: "bold";
+          cursor: "pointer";
+          margin: 20;
+}
