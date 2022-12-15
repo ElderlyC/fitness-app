@@ -7,7 +7,7 @@ const Title = () => {
         style={{
           fontSize: 90,
           margin: 10,
-          marginTop: 40,
+          marginTop: 20,
           letterSpacing: 10,
           font: "3em Fira Sans sans-serif",
         }}

@@ -1,10 +1,10 @@
 import React from "react";
-import Title from "../components/Title";
+import HomeButton from "../components/HomeButton";
 
 const KetoChecker = () => {
   return (
     <div>
-      <Title></Title>
+      <HomeButton />
       <h2>Keto Checker</h2>
     </div>
   );

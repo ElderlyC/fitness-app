@@ -26,25 +26,75 @@
   font-weight: bold;
   cursor: pointer;
   margin: 20px;
+  font-family: "Trebuchet MS";
 }
-.navButton:hover, .homebtn:hover {
+.navButton:hover,
+.homebtn:hover {
   background-color: rgb(240, 240, 240);
   border-color: blue;
 }
-.navButton:active, .homebtn:active {
+.navButton:active,
+.homebtn:active {
   background-color: rgb(228, 228, 228);
 }
 
-a:visited, a:link {
+a:visited,
+a:link {
   text-decoration: none;
-  color:black;
+  color: black;
 }
 
-.homebtn{
+.homebtn {
   background-color: transparent;
   border-radius: 10px;
   cursor: pointer;
   border-color: black;
   padding: 0;
   margin: 0;
+}
+
+legend {
+  font-size: 20px;
+}
+
+#l {
+  float: left;
+}
+#r {
+  float: right;
+}
+
+h2 {
+  margin: 20px;
+  margin-top: 30px;
+  font-size: 32px;
+  font-weight: bold;
+  font-family: Trebuchet MS;
+}
+
+#weight, #height, #age {
+  font-size: 28px;
+  width: 65px;
+}
+
+#units {
+  padding: -50px;
+}
+
+#gauge-chart2 {
+  filter: grayscale(1);
+}
+
+.react-scrollable-list {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  height: 300px;
+  width: 500px;
+  overflow-y: scroll;
+  border: black solid 1px;
+}
+
+div {
+  display: block;
 }

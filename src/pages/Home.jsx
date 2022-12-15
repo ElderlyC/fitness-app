@@ -18,37 +18,37 @@ const Home = () => {
           link="Maintenance-Calories-Calculator"
           icon={icon1}
           textPosition={4}
-        ></SectionButton>
+        />
         <SectionButton
-          buttonName="Meal Calories Calculator"
-          link="Meal-Calories-Calculator"
+          buttonName="Daily Calorie Tracker"
+          link="Daily-Calorie-Tracker"
           icon={icon2}
-          textPosition={2}
-        ></SectionButton>
+          textPosition={18}
+        />
         <SectionButton
           buttonName="Weight Tracker"
           link="Weight-Tracker"
           icon={icon3}
           textPosition={15}
-        ></SectionButton>
+        />
         <SectionButton
           buttonName="Random Meal Generator"
           link="Random-Meal-Generator"
           icon={icon4}
           textPosition={22}
-        ></SectionButton>
+        />
         <SectionButton
           buttonName="BMI Calculator"
           link="BMI-Calculator"
           icon={icon5}
           textPosition={22}
-        ></SectionButton>
+        />
         <SectionButton
           buttonName="Keto Checker"
           link="Keto-Checker"
           icon={icon6}
           textPosition={22}
-        ></SectionButton>
+        />
       </div>
     </div>
   );
