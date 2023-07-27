@@ -13,6 +13,7 @@ const BMICalculator = () => {
   const [emojiWidth, setEmojiWidth] = useState();
   const [emojiHeight, setEmojiHeight] = useState();
   const [gaugePercent, setPercent] = useState();
+
   const CalculateBMI = () => {
     const weight = document.getElementById("weight").value;
     const height = document.getElementById("height").value;
@@ -46,6 +47,7 @@ const BMICalculator = () => {
       setEmojiHeight(130);
     }
   }, [BMI]);
+
   return (
     <div>
       <HomeButton />
@@ -61,16 +63,15 @@ const BMICalculator = () => {
           <input id="height" type="number" min="46" max="272" required />
           <span id="units">cm</span>
         </fieldset>
-        <fieldset>
-          <legend>Click this button to Calculate</legend>
+        <div>
           <button
             type="submit"
             onClick={CalculateBMI}
             style={{ fontSize: 12, width: 170, height: 30 }}
           >
-            Seems kinda unnecessary to have this many fieldsets
+            Calculate
           </button>
-        </fieldset>
+        </div>
       </form>
       {BMI &&
         document.getElementById("weight").value >= 2 &&

@@ -72,7 +72,20 @@ h2 {
   font-family: Trebuchet MS;
 }
 
-#weight, #height, #age {
+/* for daily tracker */
+p,
+h5 {
+  margin: 10px;
+  font-size: 20px;
+}
+
+.nutrients {
+  display: flex;
+}
+
+#weight,
+#height,
+#age {
   font-size: 28px;
   width: 65px;
 }
@@ -97,4 +110,51 @@ h2 {
 
 div {
   display: block;
+}
+
+::placeholder {
+  color: #8d8d8db9; /* Desired color for the placeholder text */
+}
+
+#toggleCheckbox {
+  height: 20px;
+  width: 20px;
+  border: 2px solid #ccc; /* Adjust the border color as desired */
+  border-radius: 4px; /* Adjust the border radius as needed */
+  outline: none;
+  transition: border-color 0.3s ease;
+  margin-right: 5px; /* Adjust the margin as needed */
+  align-items: center;
+}
+
+.protein-color::before {
+  background-color: #299fe3;
+}
+
+.carbs-color::before {
+  background-color: #edcd1a;
+}
+
+.fat-color::before {
+  background-color: #c90c9d;
+}
+
+.legend {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.legend-item {
+  display: flex;
+  align-items: center;
+}
+
+.legend-item::before {
+  content: "";
+  width: 24px;
+  height: 24px;
+  margin-right: 8px;
+  display: inline-block;
+  border-radius: 6px;
 }

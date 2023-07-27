@@ -20,8 +20,8 @@ const Home = () => {
           textPosition={4}
         />
         <SectionButton
-          buttonName="Daily Calorie Tracker"
-          link="Daily-Calorie-Tracker"
+          buttonName="Calorie Calculator"
+          link="Calorie-Calculator"
           icon={icon2}
           textPosition={18}
         />

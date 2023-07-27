@@ -12,7 +12,9 @@ const SectionButton = ({ link, buttonName, icon, textPosition }) => {
           position: "relative",
         }}
       >
-        <a style={{ display: "block", blockSize: "100%" }} href={link}></a>
+        <a style={{ display: "block", blockSize: "100%" }} href={link}>
+          {" "}
+        </a>
         <div style={{ position: "absolute", bottom: textPosition, width: 234 }}>
           {buttonName}
         </div>

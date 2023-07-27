@@ -3,37 +3,33 @@ import HomeButton from "../components/HomeButton";
 
 const Maintenance = () => {
   const [cals, setCals] = useState();
+
   const CalculateCals = () => {
-    // const array = [weight, height, age, activity].map((e) => {
-    //   document.getElementById(e).value;
-    // });
-    // ^ more concise possible?
     const weight = document.getElementById("weight").value;
     const height = document.getElementById("height").value;
     const age = document.getElementById("age").value;
     const activity = document.getElementById("activity").value;
+
+    // Mifflin-St Jeor Equation:
+    // For men: BMR = 10W + 6.25H - 5A + 5
+    // For women: BMR = 10W + 6.25H - 5A - 161
+
     if (document.getElementById("male").checked === true) {
-      console.log("male calculated");
-      console.log(weight, "a");
       setCals(
         Math.round(activity * (10 * weight + 6.25 * height - 5 * age + 5))
       );
     } else {
-      console.log("female calculated");
       setCals(
         Math.round(activity * (10 * weight + 6.25 * height - 5 * age - 161))
       );
     }
   };
+
   const afterSubmission = (event) => {
     event.preventDefault();
   };
+
   return (
-    // Mifflin-St Jeor Equation:
-    // For men:
-    // BMR = 10W + 6.25H - 5A + 5
-    // For women:
-    // BMR = 10W + 6.25H - 5A - 161
     <div>
       <HomeButton />
       <form onSubmit={afterSubmission} style={{ fontSize: 20 }}>
@@ -86,16 +82,15 @@ const Maintenance = () => {
             </option>
           </select>
         </fieldset>
-        <fieldset>
-          <legend>Click this button to Calculate</legend>
+        <div>
           <button
             type="submit"
             onClick={CalculateCals}
             style={{ fontSize: 12, width: 170, height: 30 }}
           >
-            Seems kinda unnecessary to have this many fieldsets
+            Calculate
           </button>
-        </fieldset>
+        </div>
         {cals &&
           document.getElementById("weight").value >= 2 &&
           document.getElementById("height").value >= 46 &&
