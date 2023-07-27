@@ -1,0 +1,24 @@
+{
+  "files": {
+    "main.css": "/static/css/main.3bc08c65.css",
+    "main.js": "/static/js/main.ce6270e2.js",
+    "static/js/787.7600bb82.chunk.js": "/static/js/787.7600bb82.chunk.js",
+    "static/media/bmi.png": "/static/media/bmi.8cab025b9f47a707508f.png",
+    "static/media/greysmiley.png": "/static/media/greysmiley.691479d9d536a7e2eb59.png",
+    "static/media/greyfat.png": "/static/media/greyfat.3bc60a1242d12ba65903.png",
+    "static/media/mealCalories.png": "/static/media/mealCalories.709353c638fb4ea1a1a1.png",
+    "static/media/greythin.png": "/static/media/greythin.7a42a1cd35f2df2980a6.png",
+    "static/media/+-.png": "/static/media/+-.a8072807e3eab053edca.png",
+    "static/media/keto.png": "/static/media/keto.1acd8d74428976cbee26.png",
+    "static/media/greychubby.png": "/static/media/greychubby.2d59fe56857f31095c47.png",
+    "static/media/randommeal.png": "/static/media/randommeal.bb2277b54048f6fd1153.png",
+    "index.html": "/index.html",
+    "main.3bc08c65.css.map": "/static/css/main.3bc08c65.css.map",
+    "main.ce6270e2.js.map": "/static/js/main.ce6270e2.js.map",
+    "787.7600bb82.chunk.js.map": "/static/js/787.7600bb82.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.3bc08c65.css",
+    "static/js/main.ce6270e2.js"
+  ]
+}
