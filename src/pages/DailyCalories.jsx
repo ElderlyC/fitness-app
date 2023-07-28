@@ -26,8 +26,6 @@ const DailyCalories = () => {
         console.log(nutrients);
         const multiplier = quantity / 100;
 
-        // format the data properly before adding it to the table - total carbs / adjusted vals
-
         const calories = (nutrients.ENERC_KCAL * multiplier).toFixed(0);
         const protein = (nutrients.PROCNT * multiplier).toFixed(1);
         const fat = (nutrients.FAT * multiplier).toFixed(1);
