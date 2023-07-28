@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/fitness-app/static/css/main.3bc08c65.css",
-    "main.js": "/fitness-app/static/js/main.28f92b3f.js",
+    "main.js": "/fitness-app/static/js/main.b84dc762.js",
     "static/js/787.7600bb82.chunk.js": "/fitness-app/static/js/787.7600bb82.chunk.js",
     "static/media/bmi.png": "/fitness-app/static/media/bmi.8cab025b9f47a707508f.png",
     "static/media/greysmiley.png": "/fitness-app/static/media/greysmiley.691479d9d536a7e2eb59.png",
@@ -14,11 +14,11 @@
     "static/media/randommeal.png": "/fitness-app/static/media/randommeal.bb2277b54048f6fd1153.png",
     "index.html": "/fitness-app/index.html",
     "main.3bc08c65.css.map": "/fitness-app/static/css/main.3bc08c65.css.map",
-    "main.28f92b3f.js.map": "/fitness-app/static/js/main.28f92b3f.js.map",
+    "main.b84dc762.js.map": "/fitness-app/static/js/main.b84dc762.js.map",
     "787.7600bb82.chunk.js.map": "/fitness-app/static/js/787.7600bb82.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.3bc08c65.css",
-    "static/js/main.28f92b3f.js"
+    "static/js/main.b84dc762.js"
   ]
 }
