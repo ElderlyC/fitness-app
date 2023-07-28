@@ -1,10 +1,12 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const HomeButton = () => {
   return (
     <div>
       <button className="homebtn">
-        <a
+        {/* Use Link component instead of a tag */}
+        <Link
           style={{
             display: "block",
             blockSize: "100%",
@@ -13,7 +15,7 @@ const HomeButton = () => {
             padding: 0,
             margin: 0,
           }}
-          href="/fitness-app"
+          to="/"
         >
           <h1
             style={{
@@ -34,7 +36,7 @@ const HomeButton = () => {
           >
             A fitness and diet application for tracking and calculations
           </h3>
-        </a>
+        </Link>
       </button>
     </div>
   );
