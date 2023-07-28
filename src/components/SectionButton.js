@@ -14,7 +14,7 @@ const SectionButton = ({ link, buttonName, icon, textPosition }) => {
       >
         <a
           style={{ display: "block", blockSize: "100%" }}
-          href={`/fitness-app/${link}`}
+          href={`/fitness-app/#${link}`}
         >
           {" "}
         </a>

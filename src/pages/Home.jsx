@@ -15,37 +15,37 @@ const Home = () => {
       <div id="container" style={{ columnCount: 3, rowCount: 2 }}>
         <SectionButton
           buttonName="Maintenance Calories Calculator"
-          link="Maintenance-Calories-Calculator"
+          link="/Maintenance-Calories-Calculator"
           icon={icon1}
           textPosition={4}
         />
         <SectionButton
           buttonName="Calorie Calculator"
-          link="Calorie-Calculator"
+          link="/Calorie-Calculator"
           icon={icon2}
           textPosition={18}
         />
         <SectionButton
           buttonName="Weight Tracker"
-          link="Weight-Tracker"
+          link="/Weight-Tracker"
           icon={icon3}
           textPosition={15}
         />
         <SectionButton
           buttonName="Random Meal Generator"
-          link="Random-Meal-Generator"
+          link="/Random-Meal-Generator"
           icon={icon4}
           textPosition={22}
         />
         <SectionButton
           buttonName="BMI Calculator"
-          link="BMI-Calculator"
+          link="/BMI-Calculator"
           icon={icon5}
           textPosition={22}
         />
         <SectionButton
           buttonName="Keto Checker"
-          link="Keto-Checker"
+          link="/Keto-Checker"
           icon={icon6}
           textPosition={22}
         />
