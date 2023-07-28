@@ -13,7 +13,7 @@ const HomeButton = () => {
             padding: 0,
             margin: 0,
           }}
-          href="/"
+          href="/fitness-app"
         >
           <h1
             style={{

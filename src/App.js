@@ -13,18 +13,18 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <BrowserRouter>
+        <BrowserRouter basename="/fitness-app">
           <Routes>
             <Route path="/" element={<Home />} />
             <Route
-              path="Maintenance-Calories-Calculator"
+              path="/Maintenance-Calories-Calculator"
               element={<Maintenance />}
             />
-            <Route path="Weight-Tracker" element={<WeightTracker />} />
-            <Route path="BMI-Calculator" element={<BMICalculator />} />
-            <Route path="Calorie-Calculator" element={<DailyCalories />} />
-            <Route path="Random-Meal-Generator" element={<RandomMeal />} />
-            <Route path="Keto-Checker" element={<KetoChecker />} />
+            <Route path="/Weight-Tracker" element={<WeightTracker />} />
+            <Route path="/BMI-Calculator" element={<BMICalculator />} />
+            <Route path="/Calorie-Calculator" element={<DailyCalories />} />
+            <Route path="/Random-Meal-Generator" element={<RandomMeal />} />
+            <Route path="/Keto-Checker" element={<KetoChecker />} />
           </Routes>
         </BrowserRouter>
       </header>
