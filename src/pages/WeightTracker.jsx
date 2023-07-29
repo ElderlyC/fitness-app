@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import HomeButton from "../components/HomeButton";
 import { DataGrid } from "@mui/x-data-grid";
+import exampleList from "./Weight/ExampleWeights";
 
 const columns = [
   { field: "id", headerName: "Day", width: 60, sortable: false },
@@ -64,6 +65,8 @@ const WeightTracker = () => {
   const [selectedDate, setSelectedDate] = useState(todayString);
   const [selectedWeight, setSelectedWeight] = useState();
   const [showTable, setShowTable] = useState(false);
+  const [editing, setEditing] = useState(false);
+  const [added, setAdded] = useState(false);
 
   const monthName = months[monthCount - 1];
 
@@ -71,14 +74,11 @@ const WeightTracker = () => {
     e.preventDefault();
     const date = document.getElementById("date").value;
     const weight = +document.getElementById("weight").value;
-    document.getElementById("weight").value = "";
 
     // Check if a weight object with the same date already exists
     const existingWeight = userWeights.find((item) => item.date === date);
     if (existingWeight) {
-      // Display an error message or handle the duplicate entry as needed
-      console.log("Weight entry already exists for this date");
-      return;
+      setUserWeights((prev) => prev.filter((record) => record.date !== date));
     }
 
     setUserWeights((prev) =>
@@ -86,12 +86,20 @@ const WeightTracker = () => {
         (a, b) => new Date(a.date) - new Date(b.date)
       )
     );
+
+    document.getElementById("weight").value = "";
   };
 
-  function addWeightData(text) {
+  const addWeightData = (text) => {
     const lines = text.split("\n");
     const weightData = lines.map((line) => {
-      const [dateStr, weightStr] = line.split("\t");
+      const matches = line.match(/(\d+(?:st|nd|rd|th)?)[\t ]+([\d.]+)/);
+      if (!matches) {
+        // If no match found, return null or handle invalid input as desired
+        return null;
+      }
+
+      const [dateStr, weightStr] = matches.slice(1); // Extract matched parts
       const dateParts = dateStr.split(" ");
       const day = dateParts[0]
         .replace("th", "")
@@ -104,26 +112,42 @@ const WeightTracker = () => {
       const weight = parseFloat(weightStr);
       return { date: isoDate, weight };
     });
-    return weightData;
-  }
+    return weightData.filter((item) => item !== null); // Remove any null entries (invalid inputs)
+  };
 
   const sendToConsole = (e) => {
     e.preventDefault();
-    setMonth((prevMonth) => +prevMonth + 1);
-    if (monthCount === 12) {
-      setYear((prevYear) => +prevYear + 1);
-      setMonth(1);
-    }
-    const textArea = document.getElementById("record-list");
-    console.log(textArea.value);
-    const weightText = document.getElementById("record-list").value;
-    const addedWeights = addWeightData(weightText);
-    console.log(addedWeights);
 
-    setUserWeights(userWeights.concat(addedWeights));
+    const weightText = document.getElementById("record-list").value;
+    if (!weightText) {
+      console.log("no weight text");
+      return;
+    }
+    const addedWeights = addWeightData(weightText);
+
+    setUserWeights((prev) =>
+      addedWeights.reduce((accumulator, currentItem) => {
+        const dateExists = accumulator.some(
+          (item) => item.date === currentItem.date
+        );
+
+        if (dateExists) {
+          // Update the existing entry with the new weight
+          return accumulator.map((item) =>
+            item.date === currentItem.date ? currentItem : item
+          );
+        }
+
+        // Add the new entry to the accumulator
+        return [...accumulator, currentItem];
+      }, prev)
+    );
+
+    // Sort the userWeights array by date
     setUserWeights((prev) =>
       prev.sort((a, b) => new Date(a.date) - new Date(b.date))
-    ); // Sort the userWeights array by date
+    );
+
     localStorage.setItem("userWeights", JSON.stringify(userWeights));
     document.getElementById("record-list").value = "";
   };
@@ -152,6 +176,7 @@ const WeightTracker = () => {
 
   const dateChangeHandler = (e) => {
     setSelectedDate(e.target.value);
+    console.log(selectedDate);
     const selectedDateObj = new Date(e.target.value);
     setMonth(selectedDateObj.getMonth() + 1);
     setYear(selectedDateObj.getFullYear());
@@ -161,11 +186,46 @@ const WeightTracker = () => {
     setUserWeights((prevWeights) => prevWeights.slice(0, -1));
   };
 
+  const deleteMonthHandler = () => {
+    setUserWeights((prevWeights) =>
+      prevWeights.filter(
+        (item) => new Date(item?.date).getMonth() + 1 !== monthCount
+      )
+    );
+  };
+
+  const addExampleListHandler = () => {
+    if (added) {
+      setUserWeights((prev) =>
+        prev.filter((item) => {
+          const egMonths = new Date(item.date).getMonth() + 1;
+          return egMonths < 4 || egMonths > 8;
+        })
+      );
+      setAdded(false);
+      return;
+    }
+    setUserWeights((prev) =>
+      [...prev, ...exampleList].sort(
+        (a, b) => new Date(a.date) - new Date(b.date)
+      )
+    );
+    setYear(2023);
+    setMonth(7);
+    setAdded(true);
+  };
+
   useEffect(() => {
     setSelectedWeight(
       userWeights.find((item) => item.date === selectedDate)?.weight || null
     );
-  }, [userWeights, selectedDate]);
+    if (selectedWeight) {
+      setEditing(true);
+    } else {
+      setEditing(false);
+    }
+  }, [userWeights, selectedDate, selectedWeight]);
+
   useEffect(() => {
     document.getElementById("weight").value = selectedWeight;
   }, [selectedWeight]);
@@ -173,6 +233,15 @@ const WeightTracker = () => {
   useEffect(() => {
     localStorage.setItem("userWeights", JSON.stringify(userWeights));
   }, [userWeights]);
+
+  useEffect(() => {
+    setSelectedDate(() => {
+      const newDate =
+        yearCount + "-" + monthCount.toString().padStart(2, "0") + "-01";
+      document.getElementById("date").value = newDate;
+      return newDate;
+    });
+  }, [yearCount, monthCount]);
 
   const currentMonthList = userWeights.filter((record) =>
     record.date.includes(
@@ -264,19 +333,20 @@ const WeightTracker = () => {
 
   const pastSevenWeights = userWeights.slice(-7);
   const pastSevenText = "Past Week Average: ";
-
+  const numOfWeights = pastSevenWeights.length;
   const pastSevenAverage = (
     pastSevenWeights.reduce((total, current) => {
       return total + current.weight;
-    }, 0) / 7
+    }, 0) / numOfWeights
   ).toFixed(1);
+  console.log(pastSevenAverage);
 
   return (
     <div style={{ width: 640 }}>
       <HomeButton />
       <h2 style={{ fontSize: 26, margin: 15 }}>Weight Tracker</h2>
       <p style={{ margin: 5 }}>
-        {pastSevenText + pastSevenAverage}
+        {pastSevenText + (isNaN(pastSevenAverage) ? "" : pastSevenAverage)}
         &emsp;&emsp;Past 8 Weeks:
         <input
           id="toggleCheckbox"
@@ -284,6 +354,9 @@ const WeightTracker = () => {
           checked={showTable}
           onChange={handleToggle}
         />
+        <button onClick={addExampleListHandler}>
+          {added ? "Remove" : "Add"} example data
+        </button>
       </p>
 
       <form style={{ fontSize: 20 }}>
@@ -297,7 +370,7 @@ const WeightTracker = () => {
         <label htmlFor="weight">Weight:</label>
         <input id="weight" type="number" step="0.1" style={{ fontSize: 20 }} />
         <button type="button" onClick={addWeightHandler}>
-          Add Weight Record
+          {editing ? "Edit" : "Add"} Weight Record
         </button>
 
         <button type="button" onClick={deleteLastHandler}>
@@ -360,14 +433,19 @@ const WeightTracker = () => {
 
       <div id="data-importer">
         <form onSubmit={sendToConsole}>
-          <label style={{ fontSize: 18 }} htmlFor="record-list">
-            Import weights for selected month
-          </label>
-          <textarea
-            id="record-list"
-            placeholder="1st 70.3 &#xa;2nd 70.6 etc."
-          ></textarea>
-          <button type="submit">Import Values</button>
+          <div>
+            <label style={{ fontSize: 16 }} htmlFor="record-list">
+              Import weights for current month
+            </label>
+            <textarea
+              id="record-list"
+              placeholder="1st 70.3 &#xa;2nd 70.6 etc."
+            ></textarea>
+            <button type="submit">Import Values</button>
+            <button type="button" onClick={deleteMonthHandler}>
+              Delete Month Values
+            </button>
+          </div>
         </form>
       </div>
     </div>
