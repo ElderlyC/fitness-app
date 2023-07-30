@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
-import HomeButton from "../components/HomeButton";
+import HomeButton from "../../components/HomeButton";
 import { DataGrid } from "@mui/x-data-grid";
-import exampleList from "./Weight/ExampleWeights";
+import exampleList from "./ExampleWeights";
 
 const columns = [
   { field: "id", headerName: "Day", width: 60, sortable: false },
@@ -67,6 +67,7 @@ const WeightTracker = () => {
   const [showTable, setShowTable] = useState(false);
   const [editing, setEditing] = useState(false);
   const [added, setAdded] = useState(false);
+  const [monthChanged, setMonthChanged] = useState(false);
 
   const monthName = months[monthCount - 1];
 
@@ -132,13 +133,11 @@ const WeightTracker = () => {
         );
 
         if (dateExists) {
-          // Update the existing entry with the new weight
           return accumulator.map((item) =>
             item.date === currentItem.date ? currentItem : item
           );
         }
 
-        // Add the new entry to the accumulator
         return [...accumulator, currentItem];
       }, prev)
     );
@@ -159,6 +158,7 @@ const WeightTracker = () => {
     } else {
       setMonth((month) => +month - 1);
     }
+    setMonthChanged(true);
   };
 
   const nextMonthHandler = () => {
@@ -168,6 +168,7 @@ const WeightTracker = () => {
     } else {
       setMonth((month) => +month + 1);
     }
+    setMonthChanged(true);
   };
 
   const handleToggle = () => {
@@ -205,11 +206,7 @@ const WeightTracker = () => {
       setAdded(false);
       return;
     }
-    setUserWeights((prev) =>
-      [...prev, ...exampleList].sort(
-        (a, b) => new Date(a.date) - new Date(b.date)
-      )
-    );
+    setUserWeights(exampleList);
     setYear(2023);
     setMonth(7);
     setAdded(true);
@@ -234,14 +231,18 @@ const WeightTracker = () => {
     localStorage.setItem("userWeights", JSON.stringify(userWeights));
   }, [userWeights]);
 
+  //bugged, should only happen when clicking next/prev buttons
   useEffect(() => {
-    setSelectedDate(() => {
-      const newDate =
-        yearCount + "-" + monthCount.toString().padStart(2, "0") + "-01";
-      document.getElementById("date").value = newDate;
-      return newDate;
-    });
-  }, [yearCount, monthCount]);
+    if (monthChanged) {
+      setSelectedDate(() => {
+        const newDate =
+          yearCount + "-" + monthCount.toString().padStart(2, "0") + "-01";
+        document.getElementById("date").value = newDate;
+        return newDate;
+      });
+    }
+    setMonthChanged(false);
+  }, [yearCount, monthCount, monthChanged]);
 
   const currentMonthList = userWeights.filter((record) =>
     record.date.includes(
@@ -339,7 +340,6 @@ const WeightTracker = () => {
       return total + current.weight;
     }, 0) / numOfWeights
   ).toFixed(1);
-  console.log(pastSevenAverage);
 
   return (
     <div style={{ width: 640 }}>
@@ -355,7 +355,7 @@ const WeightTracker = () => {
           onChange={handleToggle}
         />
         <button onClick={addExampleListHandler}>
-          {added ? "Remove" : "Add"} example data
+          {added ? "Delete" : ""} Example Data
         </button>
       </p>
 

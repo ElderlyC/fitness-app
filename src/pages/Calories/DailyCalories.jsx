@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import HomeButton from "../components/HomeButton";
-import SearchItem from "./Calories/SearchItem";
-import SearchTable from "./Calories/SearchTable";
+import HomeButton from "../../components/HomeButton";
+import SearchItem from "./SearchItem";
+import SearchTable from "./SearchTable";
 import { useEffect } from "react";
 
 const DailyCalories = () => {

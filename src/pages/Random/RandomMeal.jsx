@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import HomeButton from "../components/HomeButton";
+import HomeButton from "../../components/HomeButton";
 import styles from "./RandomMeal.module.css";
 
 const RandomMeal = () => {

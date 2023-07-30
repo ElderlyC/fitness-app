@@ -3,11 +3,11 @@ import React from "react";
 import { Routes, Route } from "react-router-dom";
 import Home from "./pages/Home";
 import Maintenance from "./pages/Maintenance";
-import WeightTracker from "./pages/WeightTracker";
+import WeightTracker from "./pages/Weight/WeightTracker";
 import BMICalculator from "./pages/BMICalculator";
-import DailyCalories from "./pages/DailyCalories";
-import RandomMeal from "./pages/RandomMeal";
-import KetoChecker from "./pages/KetoChecker";
+import DailyCalories from "./pages/Calories/DailyCalories";
+import RandomMeal from "./pages/Random/RandomMeal";
+import KetoChecker from "./pages/Keto/KetoChecker";
 
 function App() {
   return (

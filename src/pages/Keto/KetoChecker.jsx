@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import HomeButton from "../components/HomeButton";
-import SearchForm from "./Keto/SearchForm";
-import SearchHistory from "./Keto/SearchHistory";
+import HomeButton from "../../components/HomeButton";
+import SearchForm from "./SearchForm";
+import SearchHistory from "./SearchHistory";
 
 const KetoChecker = () => {
   const [searchHistory, setSearchHistory] = useState([]);
