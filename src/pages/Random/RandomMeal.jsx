@@ -39,15 +39,20 @@ const RandomMeal = () => {
       <h2>Random Meal Generator</h2>
 
       <form onSubmit={handleSearch}>
-        <label htmlFor="pantryItems">Enter items in your pantry:</label>
+        <label htmlFor="pantryItems" style={{ fontSize: 25 }}>
+          Enter items in your pantry:
+        </label>
         <input
           id="pantryItems"
           name="pantryItems"
           placeholder="e.g. tomato chicken onion"
           size="50"
           required
+          style={{ margin: 15, fontSize: 20 }}
         ></input>
-        <button type="submit">Generate!</button>
+        <button type="submit" style={{ fontSize: 20 }}>
+          Generate!
+        </button>
       </form>
       {error && <p>Too many requests! (Wait a bit)</p>}
       <div className={recipes}>

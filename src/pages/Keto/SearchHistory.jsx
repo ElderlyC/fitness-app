@@ -32,7 +32,7 @@ const SearchHistory = ({ history }) => {
   }));
 
   return (
-    <div style={{ height: 378, width: 610 }}>
+    <div style={{ height: 378, width: 610, marginTop: 55 }}>
       <h5>Search History</h5>
       <DataGrid
         rows={rows}

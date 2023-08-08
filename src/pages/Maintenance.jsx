@@ -86,7 +86,7 @@ const Maintenance = () => {
           <button
             type="submit"
             onClick={CalculateCals}
-            style={{ fontSize: 12, width: 170, height: 30 }}
+            style={{ fontSize: 12, width: 170, height: 30, marginTop: 15 }}
           >
             Calculate
           </button>

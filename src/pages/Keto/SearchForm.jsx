@@ -13,7 +13,7 @@ const SearchForm = ({ onSearch }) => {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form onSubmit={handleSubmit} style={{ fontSize: 25 }}>
       <>
         <label htmlFor="food">Food: </label>
         <input
@@ -26,7 +26,9 @@ const SearchForm = ({ onSearch }) => {
         />
       </>
       <>
-        <label htmlFor="weight">Weight: </label>
+        <label htmlFor="weight" style={{ marginLeft: 15 }}>
+          Weight:{" "}
+        </label>
         <input
           type="number"
           value={weight}

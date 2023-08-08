@@ -404,7 +404,16 @@ const WeightTracker = () => {
         )}
 
         <div style={{ display: "flex" }}>
-          <div style={{ flex: 1, height: 642, width: 400, margin: "auto" }}>
+          <div
+            style={{
+              flex: 1,
+              height: 642,
+              width: 400,
+              margin: "auto",
+              zIndex: 1,
+              backgroundColor: "white",
+            }}
+          >
             <DataGrid
               rows={rows1}
               columns={columns}
@@ -416,7 +425,16 @@ const WeightTracker = () => {
               rowHeight={40}
             />
           </div>
-          <div style={{ flex: 1, height: 642, width: 400, margin: "auto" }}>
+          <div
+            style={{
+              flex: 1,
+              height: 642,
+              width: 400,
+              margin: "auto",
+              zIndex: 1,
+              backgroundColor: "white",
+            }}
+          >
             <DataGrid
               rows={rows2}
               columns={columns}

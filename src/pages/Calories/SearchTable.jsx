@@ -53,16 +53,7 @@ export default function SearchTable({ table }) {
 
   return (
     <div style={{ width: 600 }}>
-      <div style={{ width: 600, display: "flex" }}>
-        <div style={{ height: 378, minWidth: "100%" }}>
-          <DataGrid
-            rows={rows}
-            columns={columns}
-            hideFooter={true}
-            rowHeight={40}
-            rowsPerPageOptions={[100]}
-          />
-        </div>
+      <div style={{ width: 600, display: "flex", flexDirection: "column" }}>
         <div style={{ position: "absolute", right: "15%" }}>
           {total && (
             <CalRatio
@@ -72,17 +63,41 @@ export default function SearchTable({ table }) {
             />
           )}
         </div>
+        <div
+          style={{
+            height: 378,
+            minWidth: "100%",
+            zIndex: 1,
+            backgroundColor: "white",
+          }}
+        >
+          <DataGrid
+            rows={rows}
+            columns={columns}
+            hideFooter={true}
+            rowHeight={40}
+            rowsPerPageOptions={[100]}
+          />
+        </div>
+        <div
+          style={{
+            width: 600,
+            height: 42,
+            zIndex: 1,
+            backgroundColor: "white",
+            marginBottom: "1rem",
+          }}
+        >
+          <DataGrid
+            rows={[total]}
+            columns={columns}
+            hideFooter={true}
+            headerHeight={0}
+            rowHeight={40}
+          />
+        </div>
       </div>
 
-      <div style={{ width: 600, height: 42 }}>
-        <DataGrid
-          rows={[total]}
-          columns={columns}
-          hideFooter={true}
-          headerHeight={0}
-          rowHeight={40}
-        />
-      </div>
       <div>
         <label htmlFor="goal">Set Goal Calories</label>
         <input
@@ -102,7 +117,7 @@ export default function SearchTable({ table }) {
         <p>
           Use the{" "}
           <a
-            href="Maintenance-Calories-Calculator"
+            href="#/Maintenance-Calories-Calculator"
             style={{ fontWeight: "bold", color: "blue" }}
           >
             Maintenance Calories Calculator
