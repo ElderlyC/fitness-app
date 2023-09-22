@@ -33,11 +33,11 @@ const KetoChecker = () => {
     <div>
       <HomeButton />
       <h2>Keto Checker</h2>
-      <div>
+      <div >
         <SearchForm onSearch={handleSearch} />
         <SearchHistory history={searchHistory} />
       </div>
-      <div style={{ margin: 15 }}>
+      <div >
         <p style={{ marginTop: 45, fontSize: 14, fontStyle: "italic" }}>
           Food is considered keto-friendly when its net carbs are below a
           certain threshold (20g per day). <br /> Net carbs are calculated as

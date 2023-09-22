@@ -12,13 +12,20 @@ const SectionButton = ({ link, buttonName, icon, textPosition }) => {
         style={{
           backgroundImage: `url(${icon})`,
           position: "relative",
+          width: "100%",
         }}
       >
         {/* Use Link component instead of a tag */}
         <Link style={{ display: "block", blockSize: "100%" }} to={`${link}`}>
           {" "}
         </Link>
-        <div style={{ position: "absolute", bottom: textPosition, width: 234 }}>
+        <div
+          style={{
+            position: "absolute",
+            bottom: textPosition,
+            width: "95%",
+          }}
+        >
           {buttonName}
         </div>
       </button>
