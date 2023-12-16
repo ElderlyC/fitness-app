@@ -27,7 +27,7 @@ Below are some screenshots from my application in use.
 
 ### Home page
 
-![paintsketch](./src/screenshots/fitness app paint.png) ![figma](./src/screenshots/Fitness app figma.png)
+![paintsketch](./src/screenshots/fitness%20app%20paint.png) ![figma](./src/screenshots/Fitness%20app%20figma.png)
 
 I managed to follow my sketches for the home page almost exactly, except for some minor aesthetic changes. Below is the finished application:
 ![homepage](./src/screenshots/homepage.png)
@@ -49,10 +49,10 @@ Some functions from the planning stage were canned, others added as I worked out
 
 ### Calorie calculator
 
-![calorie calculator sketch](./src/screenshots/daily-calories-blueprint v2.png)
+![calorie calculator sketch](./src/screenshots/daily-calories-blueprint%20v2.png)
 
 Again, I narrowed the scope of the application's functions to make it less cluttered and focussed.
-![calorie calculator](./src/screenshots/calorie calc.PNG)
+![calorie calculator](./src/screenshots/calorie%20calc.PNG)
 
 ### Random meal generator
 
