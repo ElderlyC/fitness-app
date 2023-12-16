@@ -14,7 +14,7 @@ Creating this project was a way for me to learn as I went about implementing var
 
 I was able to become familiar with the use of RESTful APIs by fetching food data from the Edamam database.
 
-I also utilised localStorage, dealing with JSON and nested objects in the process, to store various data across sessions. 
+I also utilised localStorage, dealing with JSON and nested objects in the process, to store various data across sessions.
 
 Custom components and hooks were applied for various elements of the application. Implementing routing allowed me to achieve a Single-Page Application.
 
@@ -22,40 +22,48 @@ Although visually basic, this was intentional as I wished to focus mostly on fun
 
 ## Wireframes to Pages
 
-At first I used Paint to sketch out my ideas for the various sections of my application. Later Figma helped me understand visually what I wanted to accomplish. 
+At first I used Paint to sketch out my ideas for the various sections of my application. Later Figma helped me understand visually what I wanted to accomplish.
 Below are some screenshots from my application in use.
 
 ### Home page
 
-![HostScreen](./src/images/wireframes/InitialScreen.PNG) ![HostScreenshot](./src/images/screenshots/hostpage.PNG)
+![paintsketch](./src/screenshots/fitness app paint.png) ![figma](./src/screenshots/Fitness app figma.png)
+
+I managed to follow my sketches for the home page almost exactly, except for some minor aesthetic changes. Below is the finished application:
+![homepage](./src/screenshots/homepage.png)
 
 ### Maintenance calories calculator
 
-![SettingPage](./src/images/wireframes/SettingPage.PNG) ![SettingsScreenshot](./src/images/screenshots/settingspage.PNG)
+![maintenance calculator](./src/screenshots/maintenance.PNG)
 
 ### Weight tracker
 
-![JoinScreen](./src/images/wireframes/JoinScreen.png) ![JoinmodalScreenshot](./src/images/screenshots/joinmodal.PNG)
+![weight tracker sketch](./src/screenshots/weight-tracker-blueprint.png)
+
+Some functions from the planning stage were canned, others added as I worked out what would be most useful.
+![weight tracker](./src/screenshots/weighttracker.PNG)
 
 ### BMI calculator
 
-![TablePage](./src/images/wireframes/TablePage.png) ![TableScreenshot](./src/images/screenshots/tablepage.PNG)
+![bmi calculator](./src/screenshots/bmi.PNG)
 
 ### Calorie calculator
 
-![MeetupsListPage](./src/images/wireframes/MeetupsListPage.png) ![MeetupsListScreenshot](./src/images/screenshots/meetupslistpage.PNG)
+![calorie calculator sketch](./src/screenshots/daily-calories-blueprint v2.png)
+
+Again, I narrowed the scope of the application's functions to make it less cluttered and focussed.
+![calorie calculator](./src/screenshots/calorie calc.PNG)
 
 ### Random meal generator
 
-![MeetupsListPage](./src/images/wireframes/MeetupsListPage.png) ![MeetupsListScreenshot](./src/images/screenshots/meetupslistpage.PNG)
-
-I hope to continue to make applications that I can proudly use myself as I know that others will find them useful too.
+![random meal generator](./src/screenshots/randommeal.PNG)
 
 ### Keto checker
 
-![MeetupsListPage](./src/images/wireframes/MeetupsListPage.png) ![MeetupsListScreenshot](./src/images/screenshots/meetupslistpage.PNG)
+![keto checker sketch](./src/screenshots/keto-checker-blueprint.png)
 
-I hope to continue to make applications that I can proudly use myself as I know that others will find them useful too.
+Another example where more features were added later in production:
+![keto checker](./src/screenshots/ketochecker.PNG)
 
 ## The Programmer
 
